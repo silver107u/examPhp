@@ -1,0 +1,18 @@
+---
+# tasks file for php
+- yum:
+        name:
+                - php 
+                - httpd
+        state: present
+      
+- service:
+        name: httpd
+        state: started
+        enabled: true
+- template:
+        src: index.html.j2
+        dest: /var/www/html/index.html
+- template:
+        src: index.php.j2
+        dest: /var/www/html/index.php
